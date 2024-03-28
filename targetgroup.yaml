@@ -1,0 +1,10 @@
+apiVersion: elbv2.k8s.aws/v1beta1
+kind: TargetGroupBinding
+metadata:
+  name: backend-tgb
+  namespace: kube-system
+spec:
+  serviceRef:
+    name: backend-service
+    port: 5000
+  targetGroupARN: arn:aws:elasticloadbalancing:ap-south-1:270980086296:targetgroup/demo-tg-test/cb5be75acd6c6ccc

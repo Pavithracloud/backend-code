@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-app
+  template:
+    metadata:
+      labels:
+        app: backend-app
+      annotations:
+        alb.ingress.kubernetes.io/target-group-arn: "arn:aws:elasticloadbalancing:ap-south-1:270980086296:targetgroup/demo-tg-test/cb5be75acd6c6ccc"
+    spec:
+      containers:
+      - name: backend
+        image: 270980086296.dkr.ecr.ap-south-1.amazonaws.com/demoeks:backend
+        ports:
+        - containerPort: 5000

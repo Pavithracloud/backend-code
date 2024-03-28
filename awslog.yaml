@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-logging
+  namespace: kube-system
+data:
+  logconfig.json: |
+    {
+      "clusterName": "demo",
+      "logGroupName": "/aws/eks/demo/cluster",
+      "logRegion": "ap-south-1"
+    }
